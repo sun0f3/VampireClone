@@ -9,7 +9,7 @@ class Entity {
     var scene : Scene;
 
     var bmp : h2d.Bitmap;
-    var speed = 5;
+    var speed : Float = 5;
 
    
 
