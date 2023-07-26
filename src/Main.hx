@@ -58,7 +58,9 @@ class Main extends hxd.App{
         enemies.iter(function(enemy) enemy.update(dt, heroPosition));
     }
 
+    //Передвижения персонажа
     function MoveHero(dt : Float) {
+        //WASD
         if(Key.isDown(Key.A)&&(hero.x >= (herosizex/2)))
             hero.x = hero.x - dt * speed;
         if(Key.isDown(Key.D)&&(hero.x <= (windowsizex-(herosizex/2))))
@@ -67,6 +69,18 @@ class Main extends hxd.App{
             hero.y = hero.y - dt * speed;
         if(Key.isDown(Key.S)&&(hero.y <= (windowsizey-(herosizey/2))))
             hero.y = hero.y + dt * speed;
+
+        //Стрелочки
+        if(Key.isDown(Key.LEFT)&&(hero.x >= (herosizex/2)))
+            hero.x = hero.x - dt * speed;
+        if(Key.isDown(Key.RIGHT)&&(hero.x <= (windowsizex-(herosizex/2))))
+            hero.x = hero.x + dt * speed;
+        if(Key.isDown(Key.UP)&&(hero.y >= (herosizex/2)))
+            hero.y = hero.y - dt * speed;
+        if(Key.isDown(Key.DOWN)&&(hero.y <= (windowsizey-(herosizey/2))))
+            hero.y = hero.y + dt * speed;
+
+
     }
 
 
