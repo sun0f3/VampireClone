@@ -9,6 +9,7 @@ class Main extends hxd.App{
 
     var velocity : Float = 0;
     var gravity : Float = 10;
+    var speed : Float = 100;
     
     var chunkSize : Float = 100;
 
@@ -47,7 +48,7 @@ class Main extends hxd.App{
         
         recalculate_enemies(dt);
 
-        MoveHero();
+        MoveHero(dt);
     
     }
 
@@ -57,15 +58,15 @@ class Main extends hxd.App{
         enemies.iter(function(enemy) enemy.update(dt, heroPosition));
     }
 
-    function MoveHero() {
+    function MoveHero(dt : Float) {
         if(Key.isDown(Key.A)&&(hero.x >= (herosizex/2)))
-            hero.x --;
+            hero.x = hero.x - dt * speed;
         if(Key.isDown(Key.D)&&(hero.x <= (windowsizex-(herosizex/2))))
-            hero.x ++;
+            hero.x = hero.x + dt * speed;
         if(Key.isDown(Key.W)&&(hero.y >= (herosizex/2)))
-            hero.y --;
+            hero.y = hero.y - dt * speed;
         if(Key.isDown(Key.S)&&(hero.y <= (windowsizey-(herosizey/2))))
-            hero.y ++;
+            hero.y = hero.y + dt * speed;
     }
 
 
