@@ -1,15 +1,15 @@
 import h2d.Scene;
 
 class Entity {
-    var x : Int;
-    var y : Int;
+    var x : Float;
+    var y : Float;
 
     var size : Int;
 
     var scene : Scene;
 
     var bmp : h2d.Bitmap;
-    var speed : Float = 5;
+ 
 
    
 
@@ -23,7 +23,7 @@ class Entity {
     public function init(scene: Scene) {
       this.scene = scene;
 
-      var tile = h2d.Tile.fromColor(0xFFFFFF, 100, 100);
+      var tile = h2d.Tile.fromColor(0xFFFFFF, 10, 10);
       tile.dx = -tile.width * 0.5;
       tile.dy = -tile.height * 0.5;
       
@@ -31,11 +31,5 @@ class Entity {
       bmp = new h2d.Bitmap(tile, scene);
     }
 
-    public function update(dt:Float) {
-
-       x++;
-      bmp.x = x; 
-
-    }
-
+   
 }
