@@ -53,7 +53,7 @@ class Main extends hxd.App{
 
     function recalculate_enemies(dt:Float) {
 
-        var heroPosition : h2d.col.Point = new h2d.col.Point(200,200);
+        var heroPosition : h2d.col.Point = new h2d.col.Point(hero.x,hero.y);
         enemies.iter(function(enemy) enemy.update(dt, heroPosition));
     }
 
