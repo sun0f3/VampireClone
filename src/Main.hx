@@ -7,7 +7,7 @@ class Main extends hxd.App{
     var velocity : Float = 0;
     var gravity : Float = 10;
     
-    var chunkSize : Float = 100;
+    var chunkSize : Float = 50;
 
     override function init () {
        // create a white box + create 100x100 tile from it
