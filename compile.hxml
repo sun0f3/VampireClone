@@ -1,8 +1,0 @@
--cp src
--lib heaps
--lib hlsdl
-#-js hello.js
--hl hello.hl
--main Main
--D windowSize=800x768
--debug
