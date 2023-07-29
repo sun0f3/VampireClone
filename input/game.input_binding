@@ -1,3 +1,11 @@
+key_trigger {
+  input: KEY_W
+  action: "key_w"
+}
+key_trigger {
+  input: KEY_A
+  action: "key_a"
+}
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT
   action: "touch"
