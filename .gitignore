@@ -2,3 +2,4 @@
 build/*
 /.internal
 /build
+.DS_Store
