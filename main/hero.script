@@ -1,0 +1,59 @@
+local speed = 5
+
+local speed_movement = 5
+
+
+
+function init(self)
+
+	self.center = {x = 300, y = 300 }
+	
+	msg.post('.', "acquire_input_focus")
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	local pos = vmath.vector3(self.center.x, self.center.y, 0)
+	go.set_position(pos)
+	
+end
+
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+
+	if action_id == hash("W") then
+		self.center.y = self.center.y + speed_movement
+	end
+	if action_id == hash("S") then
+		self.center.y = self.center.y - speed_movement
+	end
+	if action_id == hash("A") then
+		self.center.x = self.center.x - speed_movement
+	end
+	if action_id == hash("D") then
+		self.center.x = self.center.x + speed_movement
+	end
+	
+	-- Add input-handling code here. The game object this script is attached to
+	-- must have acquired input focus:
+	--
+	--    msg.post(".", "acquire_input_focus")
+	--
+	-- All mapped input bindings will be received. Mouse and touch input will
+	-- be received regardless of where on the screen it happened.
+	-- Learn more: https://defold.com/manuals/input/
+	-- Remove this function if not needed
+
+	
+end
