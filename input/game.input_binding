@@ -1,10 +1,18 @@
 key_trigger {
   input: KEY_W
-  action: "key_w"
+  action: "W"
 }
 key_trigger {
   input: KEY_A
-  action: "key_a"
+  action: "A"
+}
+key_trigger {
+  input: KEY_S
+  action: "S"
+}
+key_trigger {
+  input: KEY_D
+  action: "D"
 }
 mouse_trigger {
   input: MOUSE_BUTTON_LEFT

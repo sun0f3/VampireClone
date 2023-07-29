@@ -11,7 +11,7 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 images {
-  image: "/assets/images/enemy/enemy.png"
+  image: "/assets/images/enemy/bunny.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 margin: 0
