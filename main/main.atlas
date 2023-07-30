@@ -23,25 +23,48 @@ images {
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
 animations {
-  id: "Heroanimationmove"
+  id: "HeroWizardidle"
   images {
-    image: "/assets/images/Main hero/AnimationMovement/Animation up.png"
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_idle_1.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/images/Main hero/AnimationMovement/Animationleft.png"
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_idle_2.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/images/Main hero/AnimationMovement/animationright.png"
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_idle_3.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   images {
-    image: "/assets/images/Main hero/AnimationMovement/heromain128x128.png"
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_idle_4.png"
     sprite_trim_mode: SPRITE_TRIM_MODE_OFF
   }
   playback: PLAYBACK_LOOP_FORWARD
-  fps: 12
+  fps: 3
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "HeroWizardWalk"
+  images {
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_walk_1.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_walk_2.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_walk_3.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  images {
+    image: "/assets/images/Main hero/Hero Wizard/Wizard_walk_4.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 3
   flip_horizontal: 0
   flip_vertical: 0
 }
