@@ -3,6 +3,13 @@ local speed = 5
 local speed_movement = 5
 
 
+local function play_animation(self, animation)
+	if self.current_animation ~= animation then
+		self.current_animation = animation
+		msg.post("#sprite", "play_animation", { id = animation})
+
+	end
+end
 
 function init(self)
 
