@@ -1,4 +1,8 @@
-local speed = 10
+local game_math = require "main.helpers.game_math"
+
+local speed = 1
+
+
 
 function init(self)
 
@@ -16,10 +20,18 @@ end
 
 function update(self, dt)
 
+	local pos = go.get_position()
 
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	local hero_pos = go.get_position('/hero')
+
+
+	local new_pos = game_math.move_to(pos, hero_pos, speed)
+	
+
+	go.set_position(new_pos)
+
+
+	
 end
 
 function fixed_update(self, dt)
