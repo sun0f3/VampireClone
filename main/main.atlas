@@ -26,6 +26,10 @@ images {
   image: "/assets/images/button.png"
   sprite_trim_mode: SPRITE_TRIM_MODE_OFF
 }
+images {
+  image: "/assets/images/bullet.png"
+  sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+}
 animations {
   id: "HeroWizardidle"
   images {

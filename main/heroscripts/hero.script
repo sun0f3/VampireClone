@@ -2,6 +2,18 @@ local speed = 5
 
 local speed_movement = 5
 
+local function create_bullet() 
+	local pos = go.get_position('#')
+
+	local bullet = factory.create('#factory', pos)
+
+
+	
+	
+    
+	
+end
+
 
 function init(self)
 
@@ -43,6 +55,11 @@ function on_input(self, action_id, action)
 	if action_id == hash("D") then
 		self.center.x = self.center.x + speed_movement
 	end
+
+	if action_id == hash("SPACE") then
+		create_bullet()
+	end
+		
 	
 	-- Add input-handling code here. The game object this script is attached to
 	-- must have acquired input focus:

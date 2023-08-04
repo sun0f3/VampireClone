@@ -1,23 +1,8 @@
 local game_math = require "main.helpers.game_math"
 
-local speed = 1
-
-
-local check_alive = function(self)
-	if self.hp <= 0 then
-		go.delete("#")
-   end
-end
-
-
-local on_shot = function(self, power)
-	self.hp = self.hp - power
-	check_alive(self)
-end
-
 function init(self)
-    self.hp = 100
 
+	self.kill_time = 2
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed
@@ -29,20 +14,34 @@ function final(self)
 	-- Remove this function if not needed
 end
 
+local function delete() 
+  go.delete('#')
+end
+
+
 function update(self, dt)
 
-	local pos = go.get_position()
+	self.kill_time = self.kill_time - dt
 
-	local hero_pos = go.get_position('/hero')
-
-
-	local new_pos = game_math.move_to(pos, hero_pos, speed)
 	
+
+	local pos = go.get_position()
+	local enemy_pos = go.get_position('/enemy')
+	
+	local new_pos = game_math.move_to(pos, enemy_pos, 10)
 
 	go.set_position(new_pos)
 
+	local enemy_get_shot = game_math.distance(pos, enemy_pos) < 10
+	local time_is_gone = self.kill_time <= 0
 
-	
+
+	if enemy_get_shot then
+		msg.post('/enemy', "get_shot", {power = 1 })
+	end
+	if enemy_get_shot or time_is_gone then
+		delete()
+    end
 end
 
 function fixed_update(self, dt)
@@ -55,13 +54,6 @@ function fixed_update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("get_shot") then
-		print("*** SHOT")
-
-		local power = message.power
-		on_shot(self, power)
-		
-	end
 	-- Add message-handling code here
 	-- Learn more: https://defold.com/manuals/message-passing/
 	-- Remove this function if not needed
