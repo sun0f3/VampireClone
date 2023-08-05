@@ -15,7 +15,7 @@ function init(self)
 
 	self.weapons = { "rifle", "pistol" }
 
-	self.reloadtime = 2
+	self.reloadtime = Config.weapons.pistol.reloadtime
 	
 	
 	msg.post('.', "acquire_input_focus")
