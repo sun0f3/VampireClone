@@ -6,11 +6,11 @@ local Config = {
 		hp = 10
 	},
 	weapons = {
-		rifle = { distance = 10, type = "point", damage = 20, delay = 4 },
-		pistol = { distance = 5, type = "point", damage = 5, delay = 1 }		
+		rifle = { distance = 10, type = "point", damage = 20, reloadtime = 4 },
+		pistol = { distance = 5, type = "point", damage = 5, reloadtime = 1 }		
 	},
 	enemies = {
-		rabbit =  { hp = 100, speep = 2},
+		rabbit =  { hp = 100, speed = 2},
 	},
 
 	abills = {

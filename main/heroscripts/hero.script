@@ -1,5 +1,6 @@
 local Config = require 'main.config'
 local speed_movement = Config.hero.speed
+reloading = 0
 
 local function create_bullet() 
 	local pos = go.get_position('#')
@@ -14,6 +15,7 @@ function init(self)
 
 	self.weapons = { "rifle", "pistol" }
 
+	self.reloadtime = 2
 	
 	
 	msg.post('.', "acquire_input_focus")
@@ -28,7 +30,11 @@ end
 function update(self, dt)
 	local pos = vmath.vector3(self.center.x, self.center.y, 0)
 	go.set_position(pos)
-	
+
+	reloading = reloading - dt
+
+	reloaded = reloading <= 0
+
 end
 
 
@@ -53,8 +59,11 @@ function on_input(self, action_id, action)
 		self.center.x = self.center.x + speed_movement
 	end
 
-	if action_id == hash("SPACE") then
-		create_bullet()
+	if action_id == hash("SPACE") and reloaded then
+		if action.pressed then
+			create_bullet()
+			reloading = self.reloadtime
+		end	
 	end
 		
 	
