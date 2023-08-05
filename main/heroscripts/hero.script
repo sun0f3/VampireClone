@@ -1,6 +1,7 @@
 local Config = require 'main.config'
 local speed_movement = Config.hero.speed
-reloading = 0
+local reloading = 0
+local reloaded = 0
 
 local function create_bullet() 
 	local pos = go.get_position('#')
