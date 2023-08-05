@@ -1,23 +1,20 @@
-local speed = 5
-
-local speed_movement = 5
+local Config = require 'main.config'
+local speed_movement = Config.hero.speed
 
 local function create_bullet() 
 	local pos = go.get_position('#')
-
 	local bullet = factory.create('#factory', pos)
-
-
-	
-	
-    
-	
 end
 
 
 function init(self)
 
 	self.center = {x = 300, y = 300 }
+
+
+	self.weapons = { "rifle", "pistol" }
+
+	
 	
 	msg.post('.', "acquire_input_focus")
 end

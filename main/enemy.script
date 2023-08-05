@@ -1,5 +1,7 @@
 local game_math = require "main.helpers.game_math"
 
+local config = require 'main.config'
+
 local speed = 1
 
 
@@ -16,7 +18,9 @@ local on_shot = function(self, power)
 end
 
 function init(self)
-    self.hp = 100
+	self.hp = config.enemies.rabbit.hp
+
+	self.can_attack = true
 
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
