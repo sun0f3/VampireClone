@@ -8,6 +8,7 @@ local speed = 1
 local check_alive = function(self)
 	if self.hp <= 0 then
 		go.delete("#")
+		msg.post("hero#HeroGui", "Enemy dead")
    end
 end
 
