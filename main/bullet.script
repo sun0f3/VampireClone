@@ -1,7 +1,7 @@
 local game_math = require "main.helpers.game_math"
 
 function init(self)
-
+	sound.play("#sound_shot")
 	self.kill_time = 2
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
