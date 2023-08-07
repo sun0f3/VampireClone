@@ -1,0 +1,38 @@
+enemies = {}
+
+function init(self)
+	local pos = go.get_position('/hero');
+	local enemy  = factory.create("#factory", pos)
+
+	table.insert(enemies, enemy)
+	print("inited***")
+	self.t = 1
+
+	self.created = true
+
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	self.t = self.t - dt
+
+	if self.created  then
+		self.created = false
+		print('create')
+		local pos = go.get_position('#');
+		local enemy  = factory.create("#factory", pos)
+		table.insert(enemies, enemy)
+	end
+
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end

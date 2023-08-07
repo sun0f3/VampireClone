@@ -2,7 +2,7 @@ local game_math = require "main.helpers.game_math"
 
 local config = require 'main.config'
 
-local speed = 1
+local speed = config.enemies.rabbit.speed
 
 
 local alive = function(self) 
@@ -35,9 +35,7 @@ function init(self)
 end
 
 function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+  enemies.remove(1)
 end
 
 function update(self, dt)
