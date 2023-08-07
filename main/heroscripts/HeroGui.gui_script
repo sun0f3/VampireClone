@@ -1,5 +1,10 @@
 local score = 0
 
+function score_update()
+	score = score + 1
+	gui.set_text(gui.get_node("score"), score)
+end
+
 function init(self)
 	
 end
@@ -18,8 +23,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash "Enemy dead" then
-		score = score + 1
-		gui.set_text(gui.get_node("score"), score)
+		score_update()
 	end
 end
 
