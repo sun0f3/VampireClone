@@ -6,14 +6,13 @@
 local M = {}
 
 M.distance = function(point_a, point_b)
-	return math.sqrt(math.pow(point_a.x - point_b.x, 2) + math.pow(point_a.y - point_b.y, 2))
+	return vmath.length(point_b - point_a)
 end
 
 
 M.move_to = function(pos, to_pos, speed)
 
 	local distance = M.distance(pos, to_pos)
-
 
 	local sin = (to_pos.y - pos.y) / distance
 	local cos = (to_pos.x - pos.x) / distance
