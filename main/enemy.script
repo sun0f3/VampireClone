@@ -5,17 +5,23 @@ local config = require 'main.config'
 local speed = 1
 
 
-local check_alive = function(self)
-	if self.hp <= 0 then
-		go.delete("#")
-		msg.post("hero#HeroGui", "Enemy dead")
-   end
+local alive = function(self) 
+  return self.hp > 0
 end
 
 
 local on_shot = function(self, power)
 	self.hp = self.hp - power
-	check_alive(self)
+	
+
+	if alive(self) then
+		sound.play("#hit")
+	else
+		sound.play("#death")
+		msg.post("hero#HeroGui", "Enemy dead")
+		go.delete("#")
+	end
+
 end
 
 function init(self)
@@ -43,49 +49,14 @@ function update(self, dt)
 
 	local new_pos = game_math.move_to(pos, hero_pos, speed)
 	
-
 	go.set_position(new_pos)
-
-
-	
 end
 
-function fixed_update(self, dt)
-	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
-	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
-	-- Physics section of game.project
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("get_shot") then
-		print("*** SHOT")
-
 		local power = message.power
 		on_shot(self, power)
 		
 	end
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
-end
-
-function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
 end
