@@ -1,10 +1,12 @@
 local game_math = require "main.helpers.game_math"
+local store = require "main.helpers.enemies_store"
 
 function init(self)
 	sound.play("#sound_shot")
 	self.kill_time = 2
 
-	self.enemy = enemies[1]
+	self.enemy = store.nearest(go.get_position());
+	print(self.enemy);
 	-- Add initialization code here
 	-- Learn more: https://defold.com/manuals/script/
 	-- Remove this function if not needed

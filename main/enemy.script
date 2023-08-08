@@ -1,5 +1,8 @@
 local game_math = require "main.helpers.game_math"
 
+local store = require "main.helpers.enemies_store"
+
+
 local config = require 'main.config'
 
 local speed = config.enemies.rabbit.speed
@@ -35,7 +38,8 @@ function init(self)
 end
 
 function final(self)
-  enemies.remove(1)
+  local id = go.get_id()
+  store.remove(id)
 end
 
 function update(self, dt)
