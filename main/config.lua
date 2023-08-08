@@ -7,7 +7,7 @@ local Config = {
 	},
 	weapons = {
 		rifle = { distance = 10, type = "point", damage = 20, reloadtime = 4 },
-		pistol = { distance = 5, type = "point", damage = 5, reloadtime = 2 }		
+		pistol = { distance = 5, type = "point", damage = 5, reloadtime = 0.4 }		
 	},
 	enemies = {
 		rabbit =  { hp = 5, speed = 2},

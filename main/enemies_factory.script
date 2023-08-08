@@ -1,0 +1,27 @@
+local store = require "main.helpers.enemies_store"
+
+local function create_enemy(distance)
+
+	local pos = go.get_position('/hero');
+	local rot = vmath.quat_rotation_z(6.281592563 * math.random())
+	pos = pos + vmath.rotate(rot, vmath.vector3(distance, distance, 0))
+	local enemy  = factory.create("#factory", pos)
+
+	store.add(enemy)
+end
+
+local function on_timer(self, handle, time_elapsed)
+	print("triggered")
+	create_enemy(1000)
+end
+
+
+
+
+
+function init(self)
+	create_enemy(400)
+	create_enemy(400)
+	create_enemy(400)
+	timer.delay(5, true, on_timer)
+end
