@@ -10,6 +10,13 @@ local function create_bullet()
     end
 end
 
+local function auto_fire(self)
+	if self.reloaded then
+		create_bullet()
+		self.reloading = reloadtime	
+	end
+end
+
 function init(self)
 
 	self.center = {x = 300, y = 300 }
@@ -39,6 +46,8 @@ function update(self, dt)
 
 	self.reloaded = self.reloading <= 0
 
+	auto_fire(self)
+
 end
 
 
@@ -63,10 +72,6 @@ function on_input(self, action_id, action)
 		self.center.x = self.center.x + speed_movement
 	end
 
-	if action_id == hash("SPACE") and self.reloaded and action.pressed then
-		create_bullet()
-		self.reloading = reloadtime	
-	end
 		
 	
 	-- Add input-handling code here. The game object this script is attached to
